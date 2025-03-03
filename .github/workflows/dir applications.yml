@@ -11,7 +11,7 @@ on:
 jobs:
   macos:
     # https://github.com/actions/runner-images/blob/main/images/macos
-    runs-on: macos-${{ input.macos_version }}
+    runs-on: macos-${{ inputs.macos_version }}
     steps:
       - name: dir the macOS to find the Xcode List
         run: ls /Applications | grep -e Xcode
