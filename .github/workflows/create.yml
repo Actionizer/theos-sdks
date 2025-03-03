@@ -59,7 +59,8 @@ jobs:
 
       - name: Install aria2
         run: brew install aria2
-
+      - name: let me just dir the applications folder idk what are the xcodes
+        run: ls /Applications | grep -e Xcode
       - name: Patch SDK
         id: patch-sdk
         env:
