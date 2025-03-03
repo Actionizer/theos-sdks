@@ -3,6 +3,10 @@ name: Create SDK
 on:
   workflow_dispatch:
     inputs:
+      macos_version: 
+        description: 'The macOS version you use (14 does not have Xcode 14)'
+        required: true
+        type: string
       ipsw_device:
         description: 'The device ID to download the IPSW for, e.g. "iPhone11,2"'
         required: true
