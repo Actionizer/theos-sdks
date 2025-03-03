@@ -1,4 +1,4 @@
-name: Create SDK
+name: Check macOS Applications Folder
 
 on:
   workflow_dispatch:
