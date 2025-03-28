@@ -22,7 +22,7 @@ jobs:
         run: xcode-select -p
       - name: dir the SDK
         run: | 
-          if ${{ inputs.checksdk }} == "true"
+          if [ ${{ inputs.checksdk }} = "true" ]; then
             sudo xcode-select --switch /Applications/Xcode_14.3.1.app/Contents/Developer
             xcrun --sdk iphoneos --show-sdk-path
           fi
