@@ -11,6 +11,10 @@ on:
         description: 'Check SDK folder?'
         required: false
         type: string
+      xcodeversion:
+        description: 'Version of Xcode (Semantic versioning)'
+        required: false
+        type: string
 jobs:
   macos:
     # https://github.com/actions/runner-images/blob/main/images/macos
@@ -23,6 +27,6 @@ jobs:
       - name: dir the SDK
         run: | 
           if [ ${{ inputs.checksdk }} = "true" ]; then
-            sudo xcode-select --switch /Applications/Xcode_14.3.1.app/Contents/Developer
+            sudo xcode-select --switch /Applications/Xcode_${{ inputs.xcodeversion }}.app/Contents/Developer
             xcrun --sdk iphoneos --show-sdk-path
           fi
