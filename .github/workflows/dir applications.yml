@@ -27,7 +27,7 @@ jobs:
       - name: Set up Xcode
         uses: maxim-lobanov/setup-xcode@v1.6.0
         with:
-          xcode-version: 14.3.1
+          xcode-version: ${{ inputs.xcodeversion }}
       - name: dir the macOS to find the Xcode List
         run: ls /Applications | grep -e Xcode
       - name: see what version if the Xcode.app
@@ -42,3 +42,11 @@ jobs:
           if [ ${{ inputs.checkallsdksyea }} = "true" ]; then
             xcodebuild -showsdks
           fi
+      - name: try seeing if that version exists
+        run: |
+          if [ -d $(xcrun --sdk iphoneos --show-sdk-path) ]; then
+            echo "SDK folder exists as $(xcrun --sdk iphoneos --show-sdk-path)!"
+          else
+            echo "SDK folder does not exist!"
+          fi
+
