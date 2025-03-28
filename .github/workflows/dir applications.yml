@@ -7,7 +7,10 @@ on:
         description: 'The macOS version to run this thing on - e.g. 15'
         required: true
         type: string
-
+      checksdk:
+        description: 'Check SDK folder?'
+        required: false
+        type: bool
 jobs:
   macos:
     # https://github.com/actions/runner-images/blob/main/images/macos
@@ -16,4 +19,8 @@ jobs:
       - name: dir the macOS to find the Xcode List
         run: ls /Applications | grep -e Xcode
       - name: see what version if the Xcode.app
-        run: /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -version
+        run: xcode-select -p
+      - name: dir the SDK
+        run: | 
+          sudo xcode-select --switch /Applications/Xcode_14.3.1.app/Contents/Developer
+          xcrun --sdk iphoneos --show-sdk-path
