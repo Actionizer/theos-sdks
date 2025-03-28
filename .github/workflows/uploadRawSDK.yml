@@ -29,6 +29,10 @@ jobs:
       - name: Change dir
         run: |
           cd /Applications/Xcode_${{ inputs.xcode_version }}.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/
-      - name: Get the Xcode SDK list
+      - name: Copy and upload
         run: |    
-          ls
+          cp -R /Applications/Xcode_${{ inputs.xcode_version }}.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/${{ inputs.sdk_name }}.sdk ${{ GITHUB.WORKSPACE }}
+          cd ${{ GITHUB.WORKSPACE }} 
+          git add *
+          git commit -m "Add ${{ inputs.sdk_name }}.sdk"
+          git push
