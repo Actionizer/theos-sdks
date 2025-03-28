@@ -28,8 +28,7 @@ jobs:
           git config user.email 'github-actions[bot]@users.noreply.github.com'
       - name: Change dir
         run: |
-          cd /Applications/Xcode_${{ inputs.xcode_version }}.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/${{ inputs.sdk_name }}.sdk
+          cd /Applications/Xcode_${{ inputs.xcode_version }}.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/
       - name: Get the Xcode SDK list
         run: |    
           ls
-          exit -1
