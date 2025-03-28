@@ -13,6 +13,10 @@ on:
         type: string
       xcodeversion:
         description: 'Version of Xcode (Semantic versioning)'
+        required: true
+        type: string
+      checkallsdksyea:
+        description: 'detailed sdk check'
         required: false
         type: string
 jobs:
@@ -29,4 +33,10 @@ jobs:
           if [ ${{ inputs.checksdk }} = "true" ]; then
             sudo xcode-select --switch /Applications/Xcode_${{ inputs.xcodeversion }}.app/Contents/Developer
             xcrun --sdk iphoneos --show-sdk-path
+          fi
+      - name: [detailed] list sdks
+        run: |
+          if [ ${{ inputs.checkallsdksyea }} = "true" ]; then
+            sudo xcode-select --switch /Applications/Xcode_${{ inputs.xcodeversion }}.app/Contents/Developer
+            xcodebuild -showsdks
           fi
