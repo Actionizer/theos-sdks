@@ -1,13 +1,22 @@
 name: Upload Raw SDK
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '**/**/uploadRawSDK.yml'
+    inputs:
+      xcode_version:
+        description: 'The Xcode version'
+        required: true
+        type: string
+      macos_version:
+        description: 'macOS version you want to run'
+        required: true
+        type: string
+      sdk_name:
+        description: 'The name of the SDK, try running the "Check Applications" workflow (e.g. iPhoneOS16.4)'
+        required: true
 jobs:
   aio:
     name: Get SDK
-    runs-on: macos-13
+    runs-on: macos-${{ inputs.macos_version }}
     steps: 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -19,7 +28,7 @@ jobs:
           git config user.email 'github-actions[bot]@users.noreply.github.com'
       - name: Change dir
         run: |
-          cd /Applications/Xcode_14.3.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developers/SDKs
+          cd /Applications/Xcode_${{ inputs.xcode_version }}.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/${{ inputs.sdk_name }}.sdk
       - name: Get the Xcode SDK list
         run: |    
           ls
