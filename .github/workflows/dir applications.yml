@@ -10,7 +10,7 @@ on:
       checksdk:
         description: 'Check SDK folder?'
         required: false
-        type: bool
+        type: string
 jobs:
   macos:
     # https://github.com/actions/runner-images/blob/main/images/macos
@@ -22,5 +22,7 @@ jobs:
         run: xcode-select -p
       - name: dir the SDK
         run: | 
-          sudo xcode-select --switch /Applications/Xcode_14.3.1.app/Contents/Developer
-          xcrun --sdk iphoneos --show-sdk-path
+          if ${{ inputs.checksdk }} == "true"
+            sudo xcode-select --switch /Applications/Xcode_14.3.1.app/Contents/Developer
+            xcrun --sdk iphoneos --show-sdk-path
+          fi
