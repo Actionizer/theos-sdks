@@ -34,7 +34,7 @@ jobs:
             sudo xcode-select --switch /Applications/Xcode_${{ inputs.xcodeversion }}.app/Contents/Developer
             xcrun --sdk iphoneos --show-sdk-path
           fi
-      - name: [detailed] list sdks
+      - name: "[detailed] list sdks"
         run: |
           if [ ${{ inputs.checkallsdksyea }} = "true" ]; then
             sudo xcode-select --switch /Applications/Xcode_${{ inputs.xcodeversion }}.app/Contents/Developer
