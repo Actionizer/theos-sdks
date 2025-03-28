@@ -1,6 +1,7 @@
 name: Upload Raw SDK
 on:
   workflow_dispatch:
+  push:
 jobs:
   aio:
     name: Get SDK
@@ -16,7 +17,7 @@ jobs:
           git config user.email 'github-actions[bot]@users.noreply.github.com'
       - name: Change dir
         run: |
-          cd /Applications/Xcode\ 14.3.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs
+          cd /Applications/Xcode_14.3.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developers/SDKs
       - name: Get the Xcode SDK list
         run: |    
           ls
