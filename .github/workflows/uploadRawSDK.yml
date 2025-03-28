@@ -2,6 +2,8 @@ name: Upload Raw SDK
 on:
   workflow_dispatch:
   push:
+    paths:
+      - '**/**/uploadRawSDK.yml'
 jobs:
   aio:
     name: Get SDK
