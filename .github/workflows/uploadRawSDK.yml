@@ -17,6 +17,8 @@ jobs:
   aio:
     name: Get SDK
     runs-on: macos-${{ inputs.macos_version }}
+    permissions:
+      contents: write
     steps: 
       - name: Checkout code
         uses: actions/checkout@v4
