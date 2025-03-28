@@ -2,8 +2,8 @@ name: Release
 
 on:
   push:
-    paths:
-      - '**/*.sdk/**'
+    #paths:
+     # - '**/*.sdk/**'
   workflow_dispatch:
 
 jobs:
