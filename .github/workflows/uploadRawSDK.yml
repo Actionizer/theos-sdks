@@ -1,0 +1,13 @@
+name: Upload Raw SDK
+on:
+  workflow_dispatch:
+jobs:
+  aio:
+    name: Get SDK
+    runs-on: macos-latest
+    steps: 
+      - name: Change dir
+        run: |
+          cd /Applications/Xcode_14.3.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs
+      - name: Get the Xcode
+          
