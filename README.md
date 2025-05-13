@@ -1,6 +1,7 @@
-# theos/sdks
-This repository contains patched iOS SDKs containing private symbols. These were removed from official SDKs starting in Xcode 7.3 and the iOS 9.3 SDK.
+# Actionizer/Apple-OSes-SDKs
 
-To use with Theos, [download this repo](https://github.com/theos/sdks/archive/master.zip), extract, and copy whichever SDKs you desire into `$THEOS/sdks/`.
+This is the repo for SDKs of Apple platforms*.
+To use this repo, fork your own, and run the Upload Raw SDK (as this is the rawsdk branch).
+**Please input all valid values in the form.**
 
-Generated using [create_patched_sdk.sh](tools/create_patched_sdk.sh) and inoahdev’s [tbd v2.2](https://github.com/inoahdev/tbd/releases/tag/2.2) using binaries retrieved from iOS Device Support directory or extracted from an IPSW.
+To use Theos, go to [theos branch](https://github.com/Actionizer/apple-oses-sdks/blob/theos/README.md).
